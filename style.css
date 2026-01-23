@@ -1,0 +1,531 @@
+:root {
+    --bg: #f5f7f6;
+    --primary: #0b3d2e;
+    --bangla: #1f3a5f;
+    --english: #2e7d32;
+    --highlight: #b68d40;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: var(--bg);
+    color: var(--bangla);
+    line-height: 1.6;
+}
+
+/* Article */
+.article-container {
+    max-width: 880px;
+    margin: 80px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+    animation: fadeUp 1s ease;
+}
+
+/* ===============================
+    Article Header with Photo
+================================ */
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header-text h1 {
+    font-size: 36px;
+    color: var(--primary);
+    margin-bottom: 8px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.author-info {
+    margin-top: 12px;
+}
+
+.author-name {
+    font-size: 22px;
+    color: var(--highlight);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.author-photo {
+    margin-left: 40px;
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* ===============================
+    Map Container
+================================ */
+.map-container {
+    margin: 30px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.district-map {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--primary);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.5s ease;
+}
+
+.district-map:hover {
+    transform: scale(1.01);
+}
+
+.map-caption {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--bangla);
+    font-size: 16px;
+    padding: 10px;
+    background: rgba(11, 61, 46, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid var(--highlight);
+}
+
+/* Article Content */
+h1 {
+    color: var(--primary);
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.paragraph {
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.en {
+    color: var(--english);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.highlight {
+    color: var(--highlight);
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    display: block;
+}
+
+/* ===============================
+    🔗 Link Styling
+================================ */
+.upazila-list a {
+    display: block;
+    text-decoration: none;
+    color: var(--primary);
+    padding: 14px 22px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid transparent;
+}
+
+.upazila-list a:hover {
+    background: linear-gradient(135deg, #f1f5f3 0%, #e3eae7 100%);
+    color: var(--highlight);
+    padding-left: 28px;
+    transform: translateX(5px);
+    border-color: var(--highlight);
+    box-shadow: 0 5px 15px rgba(182, 141, 64, 0.1);
+}
+
+/* Hamburger Menu */
+.upazila-menu {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 999;
+}
+
+.hamburger {
+    cursor: pointer;
+    padding: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger:hover {
+    background: var(--primary);
+    transform: rotate(90deg);
+}
+
+.hamburger:hover span {
+    background: white;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: var(--primary);
+    margin: 3px 0;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.upazila-list {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: white;
+    width: 240px;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 15px 0;
+    border: 1px solid #eaeaea;
+}
+
+.upazila-list.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.upazila-list ul {
+    list-style: none;
+}
+
+.upazila-list li {
+    margin: 5px 0;
+}
+
+/* City Corporation Container */
+.city-corporation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.city-corporation-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.city-corporation-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.city-corporation-image img:hover {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    text-align: center;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.city-corporation-content {
+    width: 100%;
+}
+
+.paragraph {
+    text-align: justify;
+    line-height: 1.6;
+    color: #333;
+}
+
+.paragraph strong {
+    color: #2c3e50;
+}
+
+.en {
+    font-style: italic;
+    color: #2980b9;
+    font-weight: 500;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+    Responsive Design
+================================ */
+@media (min-width: 768px) {
+    .city-corporation-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .city-corporation-image {
+        flex: 0 0 300px;
+    }
+    
+    .city-corporation-content {
+        flex: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .city-corporation-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 992px) {
+    .article-container {
+        max-width: 90%;
+        margin: 60px auto;
+        padding: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-container {
+        margin: 40px auto;
+        padding: 25px;
+        border-radius: 12px;
+    }
+    
+    .article-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .author-photo {
+        margin-left: 0;
+        margin-top: 25px;
+        order: -1;
+    }
+    
+    .header-text h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    
+    .author-name {
+        font-size: 20px;
+    }
+    
+    .profile-img {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .paragraph {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+    
+    .highlight {
+        font-size: 18px;
+    }
+    
+    .map-container {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .map-caption {
+        font-size: 15px;
+    }
+    
+    .hamburger {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .upazila-list {
+        width: 220px;
+        top: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-container {
+        margin: 30px auto;
+        padding: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    
+    .header-text h1 {
+        font-size: 28px;
+    }
+    
+    .author-name {
+        font-size: 18px;
+    }
+    
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .paragraph {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    
+    .map-container {
+        padding: 12px;
+    }
+    
+    .district-map {
+        border-width: 1px;
+    }
+    
+    .map-caption {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    .upazila-menu {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .hamburger {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .upazila-list {
+        width: 200px;
+        top: 50px;
+    }
+    
+    .upazila-list a {
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+}
+
+/* ===============================
+    Print Styles
+================================ */
+@media print {
+    .upazila-menu {
+        display: none;
+    }
+    
+    .article-container {
+        box-shadow: none;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .district-map {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ===============================
+    Smooth Scrolling
+================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===============================
+    Selection Color
+================================ */
+::selection {
+    background-color: rgba(11, 61, 46, 0.1);
+    color: var(--primary);
+}
+
+/* ===============================
+    Scrollbar Styling
+================================ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--highlight);
+}
